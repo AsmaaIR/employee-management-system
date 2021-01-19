@@ -30,7 +30,7 @@ public class EmployeeController {
 		this.theEmployeeService = theEmployeeService;
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/employees")
 	public List<Employee> retrieveAllemployees() {
 		return theEmployeeService.findAll();
 	}
@@ -38,7 +38,7 @@ public class EmployeeController {
 	@ApiOperation(value = "Create New employee", response = Employee.class, tags = { "createEmployee" })
 	@ApiResponses(value = { @ApiResponse(code = 500, message = "Server error"),
 			@ApiResponse(code = 200, message = "Added Successfully") })
-	@PostMapping("/employees/add")
+	@PostMapping("/employees")
 	public Employee createEmployee(@RequestBody Employee employee) {
 
 		employee.setState(StateEnums.ADDED);
